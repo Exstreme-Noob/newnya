@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://bih81t3qnwj44"]
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://bih81t3qnwj44"]
 
 [ext_resource type="Script" uid="uid://c0prvw38kqyi1" path="res://scripts/Item.gd" id="1_w67xv"]
+[ext_resource type="Texture2D" uid="uid://ch6evjimer5ck" path="res://Items/texures/9mm.png" id="2_bt264"]
 
 [resource]
 script = ExtResource("1_w67xv")
@@ -12,4 +13,5 @@ pierce = 4.0
 speed = 0.0
 dmg = Array[float]([0.0, 10.0, 0.0])
 cap = 500
+texure = ExtResource("2_bt264")
 metadata/_custom_type_script = "uid://c0prvw38kqyi1"
