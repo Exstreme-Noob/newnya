@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://cwqex81465v65"]
+
+[ext_resource type="Script" uid="uid://6vbsirjqawpm" path="res://scripts/Itemlist.gd" id="1_2fx4r"]
+[ext_resource type="Script" uid="uid://c0prvw38kqyi1" path="res://scripts/Item.gd" id="2_rrj8a"]
+
+[sub_resource type="Resource" id="Resource_rrj8a"]
+script = ExtResource("2_rrj8a")
+name = "Gladius"
+type = 0
+value = 500
+weight = 2400
+pierce = 10.0
+speed = 0.5
+dmg = Array[float]([20.0, 0.0, 0.0])
+cap = 1
+metadata/_custom_type_script = "uid://c0prvw38kqyi1"
+
+[sub_resource type="Resource" id="Resource_8wsfu"]
+script = ExtResource("2_rrj8a")
+name = "9mm"
+type = 1
+value = 9
+weight = 9
+pierce = 4.0
+speed = 0.0
+dmg = Array[int]([0, 10, 0])
+cap = 500
+metadata/_custom_type_script = "uid://c0prvw38kqyi1"
+
+[sub_resource type="Resource" id="Resource_i0bjf"]
+script = ExtResource("2_rrj8a")
+name = "Block45"
+type = 0
+value = 500
+weight = 840
+pierce = 0.75
+speed = 0.01
+dmg = Array[int]([0, 1, 0])
+cap = 10
+metadata/_custom_type_script = "uid://c0prvw38kqyi1"
+
+[node name="Node" type="Node"]
+script = ExtResource("1_2fx4r")
+Items = Array[ExtResource("2_rrj8a")]([SubResource("Resource_rrj8a"), SubResource("Resource_8wsfu"), SubResource("Resource_i0bjf")])
