@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://cq4hygf8jum2o"]
+
+[ext_resource type="Script" uid="uid://c0prvw38kqyi1" path="res://scripts/Item.gd" id="1_yuwnh"]
+[ext_resource type="Texture2D" uid="uid://ok3sfa15qan7" path="res://Items/texures/Gladius.png" id="2_rkq4f"]
+
+[resource]
+script = ExtResource("1_yuwnh")
+name = "Gladius"
+type = 0
+value = 500
+weight = 2400
+pierce = 10.0
+speed = 0.5
+dmg = Array[float]([20.0, 0.0, 0.0])
+cap = 1
+texure = ExtResource("2_rkq4f")
+metadata/_custom_type_script = "uid://c0prvw38kqyi1"

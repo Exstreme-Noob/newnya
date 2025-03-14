@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://cuacq1vwk6mdx"]
+
+[ext_resource type="Script" uid="uid://c0prvw38kqyi1" path="res://scripts/Item.gd" id="1_xaq6o"]
+
+[resource]
+script = ExtResource("1_xaq6o")
+name = "Riot Shield"
+type = 3
+value = 1500
+weight = 5000
+pierce = 4.0
+speed = 0.0
+dmg = Array[float]([1.0, 0.8, 0.2])
+cap = 1
+metadata/_custom_type_script = "uid://c0prvw38kqyi1"

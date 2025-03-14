@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://bih81t3qnwj44"]
+
+[ext_resource type="Script" uid="uid://c0prvw38kqyi1" path="res://scripts/Item.gd" id="1_w67xv"]
+
+[resource]
+script = ExtResource("1_w67xv")
+name = "9mm"
+type = 1
+value = 9
+weight = 9
+pierce = 4.0
+speed = 0.0
+dmg = Array[float]([0.0, 10.0, 0.0])
+cap = 500
+metadata/_custom_type_script = "uid://c0prvw38kqyi1"
