@@ -1,0 +1,10 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://dsqcnatgdnnmy"]
+
+[ext_resource type="FontFile" uid="uid://bt6ta4bbc5eh" path="res://Minecraft.ttf" id="1_jsf07"]
+
+[resource]
+line_spacing = 0.0
+font = ExtResource("1_jsf07")
+font_size = 8
+shadow_size = 0
+shadow_offset = Vector2(0, 0)
