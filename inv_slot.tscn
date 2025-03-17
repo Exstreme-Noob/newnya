@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dxrbit0mixo2x"]
+[gd_scene load_steps=5 format=3 uid="uid://dxrbit0mixo2x"]
 
 [ext_resource type="Script" uid="uid://jge2ghyen80g" path="res://UI/Scripts/inv_slot.gd" id="1_gvx5b"]
+[ext_resource type="Resource" uid="uid://bih81t3qnwj44" path="res://Items/9mm.tres" id="2_2om6g"]
 [ext_resource type="LabelSettings" uid="uid://dsqcnatgdnnmy" path="res://invFont.tres" id="2_gw5dw"]
 [ext_resource type="Texture2D" uid="uid://ch6evjimer5ck" path="res://Items/texures/9mm.png" id="2_nrbg6"]
 
@@ -9,7 +10,9 @@ offset_right = 50.0
 offset_bottom = 50.0
 size_flags_horizontal = 2
 size_flags_vertical = 2
+stretch_mode = 1
 script = ExtResource("1_gvx5b")
+item = ExtResource("2_2om6g")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
