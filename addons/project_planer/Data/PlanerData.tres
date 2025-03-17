@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PlanerData" load_steps=5 format=3 uid="uid://coh6gmitrg5ni"]
+
+[ext_resource type="Script" uid="uid://ddh320rowvk06" path="res://addons/project_planer/Data/Task.cs" id="1_0q8yr"]
+[ext_resource type="Script" uid="uid://evsgvnu41in7" path="res://addons/project_planer/Data/PlanerData.cs" id="2_xfpcq"]
+
+[resource]
+script = ExtResource("2_xfpcq")
+Categorys = Array[String](["Ideas", "TODO", "InProgress", "Finisched"])
+Tasks = Array[Resource]()
+MinWith = 200
+metadata/_custom_type_script = "uid://evsgvnu41in7"
