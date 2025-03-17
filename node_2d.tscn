@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cfbi2baelywmm" path="res://scripts/player.gd" id="1_luj55"]
 [ext_resource type="Script" uid="uid://b0o6fj14bkq4o" path="res://scripts/inventory.gd" id="3_vvhv8"]
 [ext_resource type="Script" uid="uid://dhc6xsuc035k4" path="res://UI/Scripts/inv_grid_colums.gd" id="4_0hol4"]
-[ext_resource type="Resource" uid="uid://bih81t3qnwj44" path="res://Items/9mm.tres" id="5_kdubu"]
+[ext_resource type="PackedScene" uid="uid://dxrbit0mixo2x" path="res://inv_slot.tscn" id="5_q6r6c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4ncyk"]
 
@@ -32,24 +32,39 @@ position_smoothing_enabled = true
 [node name="UI" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 196.0
-offset_bottom = 143.0
+offset_right = 356.0
+offset_bottom = 647.0
 
-[node name="InvPanel" type="Panel" parent="CanvasLayer/UI"]
-layout_mode = 0
-offset_right = 189.0
-offset_bottom = 136.0
+[node name="InvPanel" type="TabContainer" parent="CanvasLayer/UI" node_paths=PackedStringArray("invgrid")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
 script = ExtResource("4_0hol4")
-gui_scale = 1
-inslot = ExtResource("5_kdubu")
+invgrid = NodePath("MarginContainer/ScrollContainer/Inventory")
+inslot = ExtResource("5_q6r6c")
+metadata/_edit_use_anchors_ = true
 
-[node name="Inventory" type="GridContainer" parent="CanvasLayer/UI/InvPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI/InvPanel"]
 layout_mode = 2
-offset_right = 184.0
-offset_bottom = 133.0
-columns = 5
+theme_override_constants/margin_top = 10
+metadata/_tab_index = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/UI/InvPanel/MarginContainer"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="Inventory" type="GridContainer" parent="CanvasLayer/UI/InvPanel/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 5
 
 [node name="Equipment" type="GridContainer" parent="CanvasLayer/UI/InvPanel"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1

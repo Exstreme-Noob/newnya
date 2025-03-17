@@ -1,12 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://cwqex81465v65"]
+[gd_scene load_steps=8 format=3 uid="uid://cwqex81465v65"]
 
 [ext_resource type="Script" uid="uid://6vbsirjqawpm" path="res://scripts/Itemlist.gd" id="1_2fx4r"]
 [ext_resource type="Script" uid="uid://c0prvw38kqyi1" path="res://scripts/Item.gd" id="2_rrj8a"]
 [ext_resource type="Resource" uid="uid://cq4hygf8jum2o" path="res://Items/Gladius.tres" id="3_bv3i2"]
+[ext_resource type="Resource" uid="uid://crxhfydcfiyy0" path="res://Items/Empty.tres" id="3_h2rei"]
 [ext_resource type="Resource" uid="uid://bih81t3qnwj44" path="res://Items/9mm.tres" id="4_h2rei"]
 [ext_resource type="Resource" uid="uid://6hoh8j4lm1hq" path="res://Items/Block_45.tres" id="5_anwpv"]
 [ext_resource type="Resource" uid="uid://cuacq1vwk6mdx" path="res://Items/Riot_Shield.tres" id="6_vckkj"]
 
 [node name="Node" type="Node"]
 script = ExtResource("1_2fx4r")
-Items = Array[ExtResource("2_rrj8a")]([ExtResource("3_bv3i2"), ExtResource("4_h2rei"), ExtResource("5_anwpv"), ExtResource("6_vckkj")])
+Items = Array[ExtResource("2_rrj8a")]([ExtResource("3_h2rei"), ExtResource("3_bv3i2"), ExtResource("4_h2rei"), ExtResource("5_anwpv"), ExtResource("6_vckkj")])

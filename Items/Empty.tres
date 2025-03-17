@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://crxhfydcfiyy0"]
+
+[ext_resource type="Script" uid="uid://c0prvw38kqyi1" path="res://scripts/Item.gd" id="1_frxo7"]
+[ext_resource type="Texture2D" uid="uid://degslpdbqmnbm" path="res://Items/texures/Riot_Shield.png" id="2_frxo7"]
+
+[resource]
+script = ExtResource("1_frxo7")
+name = "Empty"
+type = 4
+value = 0
+weight = 0
+pierce = 0.0
+speed = 0.0
+dmg = Array[float]([])
+cap = 0
+texure = ExtResource("2_frxo7")
+metadata/_custom_type_script = "uid://c0prvw38kqyi1"

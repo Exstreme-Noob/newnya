@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsgjjpch5rdri"]
+
+[ext_resource type="Script" uid="uid://bf0v2hlxwij0i" path="res://scripts/settings.gd" id="1_x2hje"]
+
+[node name="Settings" type="Node"]
+script = ExtResource("1_x2hje")
+gui_scale = 1.5
