@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 ItemsList="*res://ItemsList.tscn"
 Settings="*res://settings.tscn"
 
+[display]
+
+window/per_pixel_transparency/allowed=true
+
 [dotnet]
 
 project/assembly_name="NewNya"
@@ -31,3 +35,4 @@ enabled=PackedStringArray("res://addons/project_planer/plugin.cfg")
 [gui]
 
 timers/tooltip_delay_sec=0.1
+theme/custom="uid://y2aoxnv07nue"

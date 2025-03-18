@@ -10,6 +10,7 @@ func _ready() -> void:
 	else : $ItemSlot/VBoxContainer/HBoxContainer/Count.text= ""
 	custom_minimum_size = Vector2(50*Settings.gui_scale,50*Settings.gui_scale)
 	self.theme.default_font_size=8*Settings.gui_scale
+	
 
 func _make_custom_tooltip(_for_text: String) -> Object:
 	var tip = toltip.instantiate()

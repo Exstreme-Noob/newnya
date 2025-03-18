@@ -1,7 +1,22 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://y2aoxnv07nue"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://y2aoxnv07nue"]
 
+[ext_resource type="Texture2D" uid="uid://cjmj32c4gibvl" path="res://panel.png" id="1_av8wu"]
 [ext_resource type="FontFile" uid="uid://qyb4ctult71y" path="res://Minecraftia-Regular.ttf" id="1_tkpyn"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_av8wu"]
+content_margin_left = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+texture = ExtResource("1_av8wu")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_av8wu"]
 
 [resource]
 default_font = ExtResource("1_tkpyn")
 default_font_size = 8
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_av8wu")
+PopupPanel/styles/panel = SubResource("StyleBoxEmpty_av8wu")

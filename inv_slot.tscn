@@ -34,6 +34,7 @@ theme = ExtResource("3_tp70f")
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_constants/separation = -2
 alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="ItemSlot/VBoxContainer"]
@@ -44,7 +45,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 texture = ExtResource("2_nrbg6")
-expand_mode = 2
+expand_mode = 1
 stretch_mode = 4
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ItemSlot/VBoxContainer"]
@@ -56,6 +57,8 @@ size_flags_vertical = 6
 texture_filter = 1
 texture_repeat = 1
 layout_mode = 2
+size_flags_horizontal = 4
 text = "12"
 label_settings = ExtResource("2_gw5dw")
 horizontal_alignment = 1
+vertical_alignment = 1

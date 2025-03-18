@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://dy1yaptygecgh"]
 
-[ext_resource type="Texture2D" uid="uid://cfvsma5m4ah8v" path="res://icon.svg" id="1_gwequ"]
+[ext_resource type="Texture2D" uid="uid://cjmj32c4gibvl" path="res://panel.png" id="1_gwequ"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gwequ"]
 texture = ExtResource("1_gwequ")
-texture_margin_left = 5.0
-texture_margin_top = 5.0
-texture_margin_right = 5.0
-texture_margin_bottom = 5.0
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
 
 [node name="Tooltip" type="PanelContainer"]
 offset_right = 40.0
