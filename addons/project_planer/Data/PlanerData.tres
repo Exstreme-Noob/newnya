@@ -3,9 +3,19 @@
 [ext_resource type="Script" uid="uid://ddh320rowvk06" path="res://addons/project_planer/Data/Task.cs" id="1_0q8yr"]
 [ext_resource type="Script" uid="uid://evsgvnu41in7" path="res://addons/project_planer/Data/PlanerData.cs" id="2_xfpcq"]
 
+[sub_resource type="Resource" id="Resource_xfpcq"]
+script = ExtResource("1_0q8yr")
+Text = "Projekt Planen "
+CurrentState = "TODO"
+
+[sub_resource type="Resource" id="Resource_0q8yr"]
+script = ExtResource("1_0q8yr")
+Text = "Pc Sperren"
+CurrentState = "TODO"
+
 [resource]
 script = ExtResource("2_xfpcq")
-Categorys = Array[String](["Ideas", "TODO", "InProgress", "Finisched"])
-Tasks = Array[Resource]()
-MinWith = 200
+Categorys = Array[String](["Idea", "TODO", "InProgress", "Finisched"])
+Tasks = Array[Object]([SubResource("Resource_xfpcq"), SubResource("Resource_0q8yr")])
+MinWith = 0
 metadata/_custom_type_script = "uid://evsgvnu41in7"

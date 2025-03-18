@@ -12,7 +12,7 @@ config_version=5
 
 config/name="NewNya"
 run/main_scene="res://node_2d.tscn"
-config/features=PackedStringArray("4.4", "Forward Plus")
+config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -23,3 +23,11 @@ Settings="*res://settings.tscn"
 [dotnet]
 
 project/assembly_name="NewNya"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/project_planer/plugin.cfg")
+
+[gui]
+
+timers/tooltip_delay_sec=0.1
