@@ -8,3 +8,4 @@ func _ready() -> void:
 	if (item.cap>1):$VBoxContainer/HBoxContainer/Count.text = str(amount,"/",item.cap)
 	else : $VBoxContainer/HBoxContainer/Count.text= ""
 	custom_minimum_size = Vector2(50*Settings.gui_scale,50*Settings.gui_scale)
+	$"InspectBox/VBoxContainer/Name".text = item.name
