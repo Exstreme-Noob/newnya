@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnuolbvc6ymao"]
+
+[ext_resource type="Script" uid="uid://dnysmxb5xksa0" path="res://addons/project_planer/TaskDisplay.cs" id="1_nm4qd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nm4qd"]
+bg_color = Color(0.171785, 0.195374, 0.239191, 1)
+
+[node name="PanelContainer" type="PanelContainer" node_paths=PackedStringArray("TextContainer", "ButtonContainer")]
+offset_bottom = 4.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_nm4qd")
+script = ExtResource("1_nm4qd")
+TextContainer = NodePath("TaskDisplay/Text")
+ButtonContainer = NodePath("TaskDisplay/Buttons")
+
+[node name="TaskDisplay" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Text" type="VBoxContainer" parent="TaskDisplay"]
+layout_mode = 2
+
+[node name="Buttons" type="HBoxContainer" parent="TaskDisplay"]
+layout_mode = 2
+alignment = 1
