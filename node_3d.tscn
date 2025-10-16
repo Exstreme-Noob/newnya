@@ -1,0 +1,80 @@
+[gd_scene load_steps=7 format=3 uid="uid://d2t8hp5dq4y0q"]
+
+[ext_resource type="Script" uid="uid://dhguqfr0eus2t" path="res://scripts/player.gd" id="1_a0tk4"]
+[ext_resource type="BoxMesh" uid="uid://dd1dd1wlbrcxv" path="res://test.tres" id="2_jka67"]
+[ext_resource type="Script" uid="uid://dhc6xsuc035k4" path="res://UI/Scripts/inv_grid_colums.gd" id="2_r3fl7"]
+[ext_resource type="PackedScene" uid="uid://dxrbit0mixo2x" path="res://inv_slot.tscn" id="3_jka67"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_epypp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0hol4"]
+size = Vector3(20, 0.1, 20)
+
+[node name="Main" type="Node3D"]
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+script = ExtResource("1_a0tk4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+shape = SubResource("CapsuleShape3D_epypp")
+debug_color = Color(0, 0.6, 0.69803923, 0.49411765)
+
+[node name="Marker3D" type="Marker3D" parent="Player"]
+
+[node name="Camera3D" type="Camera3D" parent="Player/Marker3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+current = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_0hol4")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = ExtResource("2_jka67")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 356.0
+offset_bottom = 647.0
+
+[node name="InvPanel" type="TabContainer" parent="CanvasLayer/UI" node_paths=PackedStringArray("invgrid")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+script = ExtResource("2_r3fl7")
+invgrid = NodePath("MarginContainer/ScrollContainer/Inventory")
+inslot = ExtResource("3_jka67")
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI/InvPanel"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+metadata/_tab_index = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/UI/InvPanel/MarginContainer"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="Inventory" type="GridContainer" parent="CanvasLayer/UI/InvPanel/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 5
+
+[node name="Equipment" type="GridContainer" parent="CanvasLayer/UI/InvPanel"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
