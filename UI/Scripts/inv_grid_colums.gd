@@ -6,7 +6,7 @@ class_name Inventory
 func _ready() -> void:
 	invgrid.columns = int(size.x/(50*Settings.gui_scale+5))
 	var margin:int = int((size.x - (50*Settings.gui_scale+5)*invgrid.columns)/2)
-	$"MarginContainer".add_theme_constant_override("margin_left", margin)
+	$"Inventory".add_theme_constant_override("margin_left", margin)
 	add_item(ItemsList.Items[0],1)
 	add_item(ItemsList.Items[1],1)
 	add_item(ItemsList.Items[2],500)
@@ -17,7 +17,7 @@ func _on_window_resized():
 	size.y= get_viewport().get_rect().size.y
 	invgrid.columns = int(size.x/(50*Settings.gui_scale+5))
 	var margin:int = int((size.x - (50*Settings.gui_scale+5)*invgrid.columns)/2)
-	$"MarginContainer".add_theme_constant_override("margin_left", margin)
+	$"Inventory".add_theme_constant_override("margin_left", margin)
 
 func add_item(item:Item,amount:int):
 		var slot =inslot.instantiate()
