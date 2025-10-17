@@ -10,7 +10,10 @@ public partial class Player : CharacterBody3D
 	private const float JumpVelocity = 4.5f;
 	[Export]
 	public TabContainer Inventory;
+	[Export]
+	public Camera3D camera;
 
+	private float mouse_sens = 0.01f;//EditorSettings.mouse_sens;
 	public override void _Ready()
 	{
 		Input.SetMouseMode(Input.MouseModeEnum.Captured);
@@ -32,6 +35,18 @@ public partial class Player : CharacterBody3D
 		base._Process(delta);
 	}
 
+	public override void _Input(InputEvent @event)
+	{
+		if (@event is InputEventMouseMotion mouseEvent)
+		{
+			if(Input.MouseMode==Input.MouseModeEnum.Captured){
+			camera.RotateY(float.DegreesToRadians(mouseEvent.Relative.X*-mouse_sens));
+			camera.RotateX(float.DegreesToRadians(mouseEvent.Relative.Y*-mouse_sens));
+			}
+		}
+		base._Input(@event);
+	}
+
 	public override void _PhysicsProcess(double delta)
 	{
 		Vector3 velocity = Velocity;
@@ -45,12 +60,17 @@ public partial class Player : CharacterBody3D
 		{
 			velocity.Y = JumpVelocity;
 		}
-		
+
+		if (Input.IsActionJustPressed("move_slide")&& IsOnFloor())
+		{
+			velocity += Vector3.Forward*Speed;
+		}
 		Vector2 inputDir = Input.GetVector("move_left", "move_right", "move_forward", "move_back");
 		Vector3 direction = (Transform.Basis * new Vector3(inputDir.X, 0, inputDir.Y)).Normalized();
-		velocity += direction * Accel;
-		if(IsOnFloor()&&!Input.IsActionJustPressed("move_slide"))
+		
+		if(IsOnFloor()&&!Input.IsActionPressed("move_slide"))
 		{
+			velocity += direction * Accel;
 			if (velocity.X>Speed){velocity.X=Speed;}
 			if (velocity.X<-Speed){velocity.X=-Speed;}
 			if (velocity.Z>Speed){velocity.Z=Speed;}

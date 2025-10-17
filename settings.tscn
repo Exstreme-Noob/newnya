@@ -5,3 +5,4 @@
 [node name="Settings" type="Node"]
 script = ExtResource("1_x2hje")
 gui_scale = 1.5
+mouse_sens = 1.0
