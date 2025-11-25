@@ -8,12 +8,14 @@ public partial class Player : CharacterBody3D
 	private const float Drag = 20.0f;
 	private const float Speed = 5.0f;
 	private const float JumpVelocity = 4.5f;
+	private Vector3 Rot = new Vector3(0, 0, 0);
 	[Export]
 	public TabContainer Inventory;
 	[Export]
-	public Camera3D camera;
-
-	private float mouse_sens = 0.01f;//EditorSettings.mouse_sens;
+	public Camera3D Cam;
+	
+	private float _mouseSens = 0.1f;//EditorSettings.mouse_sens;
+	private int _invertedMouseVertical = 1;//
 	public override void _Ready()
 	{
 		Input.SetMouseMode(Input.MouseModeEnum.Captured);
@@ -39,12 +41,18 @@ public partial class Player : CharacterBody3D
 	{
 		if (@event is InputEventMouseMotion mouseEvent)
 		{
-			if(Input.MouseMode==Input.MouseModeEnum.Captured){
-			camera.RotateY(float.DegreesToRadians(mouseEvent.Relative.X*-mouse_sens));
-			camera.RotateX(float.DegreesToRadians(mouseEvent.Relative.Y*-mouse_sens));
+			if (Input.MouseMode == Input.MouseModeEnum.Captured)
+			{
+				//Cam.RotateObjectLocal(Vector3.Right ,mouseEvent.Relative.Y*_mouseSens);
+				//Cam.RotateObjectLocal(Vector3.Up, mouseEvent.Relative.X*_mouseSens);
+				
+				Rot.X +=Mathf.DegToRad(mouseEvent.Relative.Y*-_mouseSens);
+				Rot.X = Mathf.Clamp(Rot.X, Mathf.DegToRad(-90), Mathf.DegToRad(90));
+				Rot.Y += Mathf.DegToRad(mouseEvent.Relative.X *-_mouseSens);
+				Rot.Y = Rot.Y % 360f;
+				SetRotation(Rot);
 			}
 		}
-		base._Input(@event);
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -66,10 +74,11 @@ public partial class Player : CharacterBody3D
 			velocity += Vector3.Forward*Speed;
 		}
 		Vector2 inputDir = Input.GetVector("move_left", "move_right", "move_forward", "move_back");
-		Vector3 direction = (Transform.Basis * new Vector3(inputDir.X, 0, inputDir.Y)).Normalized();
+		Vector3 direction =new Vector3(inputDir.X,0 , inputDir.Y).Normalized();
 		
 		if(IsOnFloor()&&!Input.IsActionPressed("move_slide"))
 		{
+			//direction.Y = 0;
 			velocity += direction * Accel;
 			if (velocity.X>Speed){velocity.X=Speed;}
 			if (velocity.X<-Speed){velocity.X=-Speed;}

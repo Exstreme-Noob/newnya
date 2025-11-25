@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d2t8hp5dq4y0q"]
+[gd_scene load_steps=9 format=3 uid="uid://d2t8hp5dq4y0q"]
 
 [ext_resource type="Script" uid="uid://kbci56sc4g14" path="res://scripts/Player.cs" id="1_r3fl7"]
 [ext_resource type="BoxMesh" uid="uid://dd1dd1wlbrcxv" path="res://test.tres" id="2_jka67"]
@@ -12,23 +12,21 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_0hol4"]
 size = Vector3(100, 0.1, 100)
 
+[sub_resource type="SphereMesh" id="SphereMesh_r3fl7"]
+
 [node name="Main" type="Node3D"]
 
-[node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("Inventory", "camera")]
+[node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("Inventory", "Cam")]
 transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 0, 2, 0)
 script = ExtResource("1_r3fl7")
 Inventory = NodePath("../CanvasLayer/UI/InvPanel")
-camera = NodePath("Marker3D/Camera3D")
+Cam = NodePath("Camera3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 shape = SubResource("CapsuleShape3D_epypp")
 debug_color = Color(0, 0.6, 0.69803923, 0.49411765)
 
-[node name="Marker3D" type="Marker3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-
-[node name="Camera3D" type="Camera3D" parent="Player/Marker3D"]
-transform = Transform3D(1, -8.742278e-08, -8.742278e-08, -8.742278e-08, -1, 0, -8.742278e-08, 7.642742e-15, -1, 0, 0, 0)
+[node name="Camera3D" type="Camera3D" parent="Player"]
 current = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
@@ -46,6 +44,10 @@ omni_attenuation = -0.444
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = ExtResource("2_jka67")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -4)
+mesh = SubResource("SphereMesh_r3fl7")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
