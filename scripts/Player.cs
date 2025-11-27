@@ -2,6 +2,8 @@ using Godot;
 
 namespace NewNya.scripts;
 
+using static NoobUtils;
+
 public partial class Player : CharacterBody3D
 {
 	private const float Accel = 1.0f;
@@ -43,14 +45,16 @@ public partial class Player : CharacterBody3D
 		{
 			if (Input.MouseMode == Input.MouseModeEnum.Captured)
 			{
-				//Cam.RotateObjectLocal(Vector3.Right ,mouseEvent.Relative.Y*_mouseSens);
-				//Cam.RotateObjectLocal(Vector3.Up, mouseEvent.Relative.X*_mouseSens);
-				
-				Rot.X +=Mathf.DegToRad(mouseEvent.Relative.Y*-_mouseSens);
-				Rot.X = Mathf.Clamp(Rot.X, Mathf.DegToRad(-90), Mathf.DegToRad(90));
-				Rot.Y += Mathf.DegToRad(mouseEvent.Relative.X *-_mouseSens);
-				Rot.Y = Rot.Y % 360f;
-				SetRotation(Rot);
+				//Camera controlls
+				Rot.X +=mouseEvent.Relative.Y*-_mouseSens;
+				Rot.X = Mathf.Clamp(Rot.X, -90, 90);
+				Rot.Y += mouseEvent.Relative.X *-_mouseSens;
+				//GD.Print("pre: "+Rot.Y);
+				Rot.Y %= 360;
+				if(Rot.Y<=0)Rot.Y+=360;
+				GD.Print(Rot.Y);
+				GD.Print(Mathf.DegToRad(Rot.Y));
+				SetRotation(DegVectorToRad(Rot));
 			}
 		}
 	}
@@ -74,7 +78,8 @@ public partial class Player : CharacterBody3D
 			velocity += Vector3.Forward*Speed;
 		}
 		Vector2 inputDir = Input.GetVector("move_left", "move_right", "move_forward", "move_back");
-		Vector3 direction =new Vector3(inputDir.X,0 , inputDir.Y).Normalized();
+		Vector2 lookDir = DirVectorFromDeg(Rot.Y);
+		Vector3 direction =(new Vector3(inputDir.X,0 , inputDir.Y)* new Vector3(lookDir.Y,0,lookDir.X)).Normalized();
 		
 		if(IsOnFloor()&&!Input.IsActionPressed("move_slide"))
 		{
